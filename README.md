@@ -1,20 +1,20 @@
- # Year-End Market Seasonality Study
+# Year-End Market Seasonality Study
 
 I built this project because I was curious whether the market tends to behave differently around the end of the year.
 
-The main question I tested was:
+The main question I wanted to test was:
 
 **What happens if you buy around Dec. 21 and hold until Jan. 5?**
 
-I used SPY as the main benchmark, then compared the pattern across other ETFs including QQQ, IWM, IWB, XLP, WMT, and leveraged ETFs such as SSO, UPRO, QLD, and TQQQ.
+I used SPY as the main benchmark and then compared the same idea across QQQ, IWM, IWB, XLP, WMT, and leveraged ETFs such as SSO, UPRO, QLD, and TQQQ.
 
 The study covers year-end periods from **2008 through 2025**, depending on the available history for each ETF.
 
 ## Why I Built It
 
-At first I only wanted to check whether the commonly discussed year-end or “Santa Claus” effect actually showed up in the data.
+I originally wanted to see whether the commonly discussed year-end or “Santa Claus” effect actually showed up in historical data.
 
-But instead of stopping at average return or win rate, I added more tests to see whether the pattern was unusual and whether it stayed stable over time.
+Instead of stopping at average return and win rate, I added several tests to see whether the result was unusual, whether it stayed consistent over time, and how leverage affected the outcome.
 
 ## Methodology
 
@@ -39,11 +39,11 @@ Comparable random windows averaged approximately **0.29%**, giving the year-end 
 
 However, the random-window test produced a p-value of approximately **0.16**, and the bootstrap confidence interval included zero.
 
-Because of that, I would not interpret the result as proof of a reliable market anomaly.
+Because of that, I would not interpret the result as proof of a reliable market anomaly. The historical pattern is interesting, but the statistical evidence is not strong enough to conclude that the timing effect is persistent.
 
 ## Earlier vs. Later Period
 
-One of the most interesting results was the difference between the earlier and later samples.
+One of the most interesting findings was the difference between the earlier and later parts of the sample.
 
 ### 2008–2018
 
@@ -55,7 +55,7 @@ One of the most interesting results was the difference between the earlier and l
 - Average SPY return: approximately **-0.15%**
 - Win rate: approximately **57%**
 
-The year-end effect was much stronger in the earlier part of the sample and weakened considerably in more recent years.
+The year-end effect was much stronger in the earlier sample and weakened considerably in more recent years.
 
 ## Leveraged ETFs
 
@@ -69,17 +69,43 @@ For the S&P 500 group:
 | SSO | 1.21% |
 | UPRO | 1.74% |
 
-Higher leverage increased average return, but it also increased downside substantially.
+Higher leverage increased the average return, but it also increased downside.
 
-Worst year-end return in the common sample:
-
-| ETF | Worst Return |
+| ETF | Worst Year-End Return |
 |---|---:|
 | SPY | -2.87% |
 | SSO | -5.66% |
 | UPRO | -8.35% |
 
-The Nasdaq group showed a weaker seasonal effect overall, and leverage increased downside risk more than it improved the signal.
+The Nasdaq group showed a weaker seasonal effect overall. QLD and TQQQ increased downside substantially without showing a clear improvement in the seasonal signal.
+
+## Visualizations
+
+The project creates 13 interactive Plotly charts covering:
+
+- SPY bootstrap confidence intervals
+- seasonal returns vs. matched random windows
+- year-by-year return heatmaps
+- rolling five-year performance
+- average return comparisons
+- risk vs. return
+- win rates
+- in-trade drawdowns
+- SPY vs. SSO vs. UPRO
+- QQQ vs. QLD vs. TQQQ
+- leverage risk vs. return
+- 1x, 2x, and 3x year-by-year comparisons
+- win rate vs. worst seasonal return
+
+All interactive charts are available in the `charts/` folder.
+
+## What I Took Away From the Project
+
+The biggest takeaway for me was that a strategy can look attractive when you only look at average return or win rate.
+
+Once I compared the year-end window with random periods, split the sample into earlier and later years, and looked at leverage and downside risk, the result became much less straightforward.
+
+The project also showed me why testing robustness matters. A historical pattern can exist without being statistically strong enough to treat as a dependable trading signal.
 
 ## Tools
 
@@ -90,20 +116,12 @@ The Nasdaq group showed a weaker seasonal effect overall, and leverage increased
 - yfinance
 - Plotly
 
-## Files
+## Repository Structure
 
-- `seasonality_research.py` — main Python project file
-- `README.md` — project overview
-- `requirements.txt` — Python packages needed
-- `charts/` — chart images for the project
-
-## What I Learned
-
-The biggest takeaway for me was that a strategy can look attractive when only average return and win rate are considered.
-
-Once I compared the strategy with random periods, split the sample into earlier and later years, and looked at leverage and downside risk, the conclusion became much more nuanced.
-
-This project was mainly a way for me to practice backtesting, statistics, and market research with Python.
+- `seasonality_research.py` — main analysis and backtest
+- `README.md` — project overview and results
+- `requirements.txt` — required Python packages
+- `charts/` — interactive Plotly visualizations
 
 ## Disclaimer
 
