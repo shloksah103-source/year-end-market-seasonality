@@ -1,10 +1,10 @@
-# Year-End Market Seasonality Study
+ # Year-End Market Seasonality Study
 
 I built this project because I was curious whether the market tends to behave differently around the end of the year.
 
 The main question I tested was:
 
-What happens if you buy around Dec. 21 and hold until Jan. 5?.
+**What happens if you buy around Dec. 21 and hold until Jan. 5?**
 
 I used SPY as the main benchmark, then compared the pattern across other ETFs including QQQ, IWM, IWB, XLP, WMT, and leveraged ETFs such as SSO, UPRO, QLD, and TQQQ.
 
@@ -33,11 +33,11 @@ The project includes:
 
 ## Main Result
 
-For SPY, the Dec. 21 to Jan. 5 strategy produced an average net return of approximately 1.03% across 18 year-end periods.
+For SPY, the Dec. 21 to Jan. 5 strategy produced an average net return of approximately **1.03%** across 18 year-end periods.
 
-Comparable random windows averaged approximately 0.29%, giving the year-end window an average advantage of about 0.74 percentage points.
+Comparable random windows averaged approximately **0.29%**, giving the year-end window an average advantage of about **0.74 percentage points**.
 
-However, the random-window test produced a p-value of approximately 0.16, and the bootstrap confidence interval included zero.
+However, the random-window test produced a p-value of approximately **0.16**, and the bootstrap confidence interval included zero.
 
 Because of that, I would not interpret the result as proof of a reliable market anomaly.
 
@@ -47,13 +47,13 @@ One of the most interesting results was the difference between the earlier and l
 
 ### 2008–2018
 
-- Average SPY return: approximately 1.78%
-- Win rate: approximately 82%
+- Average SPY return: approximately **1.78%**
+- Win rate: approximately **82%**
 
 ### 2019–2025
 
-- Average SPY return: approximately -0.15%
-- Win rate: approximately 57%
+- Average SPY return: approximately **-0.15%**
+- Win rate: approximately **57%**
 
 The year-end effect was much stronger in the earlier part of the sample and weakened considerably in more recent years.
 
@@ -64,7 +64,7 @@ I also compared regular ETFs with their leveraged versions.
 For the S&P 500 group:
 
 | ETF | Average Year-End Return |
-
+|---|---:|
 | SPY | 0.63% |
 | SSO | 1.21% |
 | UPRO | 1.74% |
@@ -74,14 +74,14 @@ Higher leverage increased average return, but it also increased downside substan
 Worst year-end return in the common sample:
 
 | ETF | Worst Return |
-
+|---|---:|
 | SPY | -2.87% |
 | SSO | -5.66% |
 | UPRO | -8.35% |
 
 The Nasdaq group showed a weaker seasonal effect overall, and leverage increased downside risk more than it improved the signal.
 
-# Tools
+## Tools
 
 - Python
 - pandas
